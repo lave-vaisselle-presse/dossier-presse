@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frédéric de Goldfiem — Comédien, Metteur en scène</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --red: #8C2633;
+  --red-light: #a83242;
+  --black: #0a0a0a;
+  --white: #ffffff;
+  --cream: #f5f2ed;
+  --gold: #C4A265;
+  --text-dark: #1a1a1a;
+  --text-secondary: #555;
+  --text-muted: #888;
+  --font: 'EB Garamond', Garamond, Georgia, serif;
+}
+
+html { font-size: 18px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: var(--font);
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--text-dark);
+  background: var(--cream);
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+.container { max-width: 900px; margin: 0 auto; padding: 0 2.5rem; }
+
+/* ============ HERO ============ */
+.hero {
+  background: var(--black);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__image-wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero__image-wrapper img {
+  width: 100%;
+  height: auto;
+  filter: grayscale(100%);
+}
+
+.hero__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3rem 2.5rem 2.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+}
+
+.hero__name {
+  font-family: var(--font);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 0.3rem;
+}
+
+.hero__role {
+  font-family: var(--font);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.5rem;
+}
+
+.hero__tagline {
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.6);
+}
+
+/* ============ RED ACCENT BAR ============ */
+.red-bar {
+  background: var(--red);
+  padding: 1.8rem 2.5rem;
+  text-align: center;
+}
+
+.red-bar p {
+  font-family: var(--font);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--white);
+  line-height: 1.7;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* ============ SECTIONS ============ */
+.section { padding: 4.5rem 0; }
+.section--alt { background: var(--white); }
+
+.section__title {
+  font-family: var(--font);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--red);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.section__line {
+  width: 50px;
+  height: 2px;
+  background: var(--red);
+  margin-bottom: 2.5rem;
+}
+
+/* ============ PARCOURS ============ */
+.parcours__period {
+  margin-bottom: 2.5rem;
+}
+
+.parcours__year {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--red);
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.parcours__item {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.parcours__item-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.parcours__item-detail {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.parcours__item-role {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* ============ MISE EN SCENE ============ */
+.mises-en-scene__list {
+  list-style: none;
+  padding: 0;
+}
+
+.mises-en-scene__list li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+
+.mises-en-scene__list li span {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ============ FORMATION ============ */
+.formation__item {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  color: var(--text-dark);
+}
+
+.formation__item span {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ============ CONTACT ============ */
+.contact {
+  background: var(--black);
+  padding: 3.5rem 2.5rem;
+  text-align: center;
+}
+
+.contact__name {
+  font-family: var(--font);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.contact__info {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 2;
+}
+
+.contact__info a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.contact__back {
+  margin-top: 2rem;
+}
+
+.contact__back a {
+  font-size: 0.8rem;
+  color: var(--red);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  html { font-size: 16px; }
+  .container { padding: 0 1.5rem; }
+  .section { padding: 3rem 0; }
+  .hero__overlay { padding: 2rem 1.5rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__image-wrapper">
+    <img src="fred-portrait-1.jpg" alt="Frédéric de Goldfiem">
+    <div class="hero__overlay">
+      <h1 class="hero__name">Frédéric<br>de Goldfiem</h1>
+      <p class="hero__role">Comédien · Metteur en scène</p>
+      <p class="hero__tagline">Compagnie Presque Une Île</p>
+    </div>
+  </div>
+</section>
+
+<!-- RED BAR -->
+<div class="red-bar">
+  <p>Metteur en scène de théâtre et pédagogue, Frédéric de Goldfiem a été comédien permanent des troupes du Théâtre National de Nice sous la direction de Daniel Benoin et Muriel Mayette-Holtz pendant 10 ans.</p>
+</div>
+
+<!-- THEATRE -->
+<section class="section">
+  <div class="container">
+    <h2 class="section__title">Théâtre — Comédien</h2>
+    <div class="section__line"></div>
+
+    <div class="parcours__period">
+      <p class="parcours__year">2023 / 2024</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Bérénice</p>
+        <p class="parcours__item-detail">Racine · Muriel Mayette-Holtz</p>
+        <p class="parcours__item-role">Titus — Rôle principal</p>
+        <p class="parcours__item-detail">Théâtre National de Nice · Tournée Paris, Suisse, Belgique</p>
+      </div>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Clôture de l'amour</p>
+        <p class="parcours__item-detail">Pascal Rambert · Fabienne Colson · Frédéric de Goldfiem</p>
+        <p class="parcours__item-role">Stan — Rôle principal</p>
+        <p class="parcours__item-detail">Théâtre de l'eau vive, Nice</p>
+      </div>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Caricatures Miniatures</p>
+        <p class="parcours__item-detail">Frédéric de Goldfiem : Texte et Mise en scène</p>
+        <p class="parcours__item-role">Le bouffon — Rôle principal</p>
+        <p class="parcours__item-detail">Théâtre National de Nice · Avignon 2025</p>
+      </div>
+    </div>
+
+    <div class="parcours__period">
+      <p class="parcours__year">2022 / 2023</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Les Fourberies de Scapin</p>
+        <p class="parcours__item-detail">Molière · Muriel Mayette-Holtz</p>
+        <p class="parcours__item-role">Sylvestre, l'ami de Scapin</p>
+        <p class="parcours__item-detail">Théâtre National de Nice · Tournée région PACA</p>
+      </div>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Les Amours de Zelinda et Lindoro (La Trilogie)</p>
+        <p class="parcours__item-detail">Goldoni · Muriel Mayette-Holtz</p>
+        <p class="parcours__item-role">Frederico, l'amant</p>
+        <p class="parcours__item-detail">Théâtre National de Nice · Tournée Paris (La Scala), Suisse, France</p>
+      </div>
+    </div>
+
+    <div class="parcours__period">
+      <p class="parcours__year">2021 / 2022</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Chat en Poche</p>
+        <p class="parcours__item-detail">Feydeau · Muriel Mayette-Holtz</p>
+        <p class="parcours__item-role">Pacarel — Rôle principal</p>
+        <p class="parcours__item-detail">Théâtre National de Nice</p>
+      </div>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Le Jeu de l'amour et du Hasard</p>
+        <p class="parcours__item-detail">Marivaux · Muriel Mayette-Holtz</p>
+        <p class="parcours__item-role">Mario</p>
+        <p class="parcours__item-detail">Théâtre National de Nice · Tournée PACA</p>
+      </div>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Dissonances Jeanne d'Arc</p>
+        <p class="parcours__item-detail">Écriture au plateau · Frédéric de Goldfiem</p>
+        <p class="parcours__item-detail">Théâtre National de Nice</p>
+      </div>
+    </div>
+
+    <div class="parcours__period">
+      <p class="parcours__year">2010 / 2020</p>
+      <div class="parcours__item"><p class="parcours__item-title">Le secret des nénuphars</p><p class="parcours__item-detail">Daniel Benoin</p></div>
+      <div class="parcours__item"><p class="parcours__item-title">L'Avare</p><p class="parcours__item-detail">Molière · Daniel Benoin</p></div>
+      <div class="parcours__item"><p class="parcours__item-title">Un beau ténébreux</p><p class="parcours__item-detail">Mathieu Cruciani</p></div>
+      <div class="parcours__item"><p class="parcours__item-title">La nuit juste avant les forêts</p><p class="parcours__item-detail">Koltès · Frédéric de Goldfiem</p></div>
+      <div class="parcours__item"><p class="parcours__item-title">Dans la solitude des champs de cotons</p><p class="parcours__item-detail">Koltès · Christophe Laparra</p></div>
+      <div class="parcours__item"><p class="parcours__item-title">Des jours et des nuits à Chartres</p><p class="parcours__item-detail">Daniel Benoin</p></div>
+      <div class="parcours__item"><p class="parcours__item-title">Le petit Prince</p><p class="parcours__item-detail">Saint-Exupéry · Jacques Bellay</p></div>
+      <div class="parcours__item"><p class="parcours__item-title">En attendant Godot</p><p class="parcours__item-detail">Beckett · Paul Charrieras</p></div>
+      <div class="parcours__item"><p class="parcours__item-title">Crimes et Châtiments</p><p class="parcours__item-detail">Dostoïevski · Claudine Pelletier</p></div>
+      <div class="parcours__item"><p class="parcours__item-title">La Mouette</p><p class="parcours__item-detail">Tchekhov · Marie Léna Yunker</p></div>
+    </div>
+
+    <div class="parcours__period">
+      <p class="parcours__year">2000 / 2009</p>
+      <div class="parcours__item"><p class="parcours__item-title">Faces</p><p class="parcours__item-detail">Cassavetes · Daniel Benoin</p></div>
+      <div class="parcours__item"><p class="parcours__item-title">Rock and Roll</p><p class="parcours__item-detail">Tom Stoppard · Daniel Benoin</p></div>
+      <div class="parcours__item"><p class="parcours__item-title">Maître Puntila et son valet Matti</p><p class="parcours__item-detail">Brecht · Daniel Benoin</p></div>
+      <div class="parcours__item"><p class="parcours__item-title">Festen</p><p class="parcours__item-detail">Thomas Vinterberg · Daniel Benoin</p></div>
+      <div class="parcours__item"><p class="parcours__item-title">La cantatrice chauve</p><p class="parcours__item-detail">Ionesco · Daniel Benoin</p></div>
+      <div class="parcours__item"><p class="parcours__item-title">Le Bagne</p><p class="parcours__item-detail">Jean Genet · Antoine Bourseiller</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MISE EN SCENE -->
+<section class="section section--alt">
+  <div class="container">
+    <h2 class="section__title">Mises en scène</h2>
+    <div class="section__line"></div>
+    <ul class="mises-en-scene__list">
+      <li><strong>Caricatures Miniatures</strong> <span>— Théâtre National de Nice · Avignon 2025</span></li>
+      <li><strong>Dissonances Jeanne d'Arc</strong> <span>— Écriture au plateau · Théâtre National de Nice</span></li>
+      <li><strong>La nuit juste avant les forêts</strong> <span>— Koltès</span></li>
+      <li><strong>Le Lave-Vaisselle</strong> <span>— Co-écriture et co-mise en scène avec Flor Lurienne · Compagnie Presque Une Île</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- CINEMA -->
+<section class="section">
+  <div class="container">
+    <h2 class="section__title">Cinéma</h2>
+    <div class="section__line"></div>
+    <div class="parcours__item">
+      <p class="parcours__item-title">Une affaire de goût</p>
+      <p class="parcours__item-detail">Bernard Rapp · 2000</p>
+      <p class="parcours__item-role">Félix — Rôle secondaire</p>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATION -->
+<section class="section section--alt">
+  <div class="container">
+    <h2 class="section__title">Formation</h2>
+    <div class="section__line"></div>
+    <p class="formation__item"><strong>École de la Comédie de Saint-Étienne</strong> <span>— 1996-1999</span></p>
+    <p class="formation__item"><strong>Stage de doublage</strong> <span>— Studio O'Bahamas · Novembre 2024</span></p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<footer class="contact">
+  <p class="contact__name">Frédéric de Goldfiem</p>
+  <p class="contact__info">
+    <a href="mailto:Fred-degoldfiem@outlook.fr">Fred-degoldfiem@outlook.fr</a><br>
+    06 30 18 69 03
+  </p>
+  <div class="contact__back">
+    <a href="index.html">← Retour au dossier de presse</a>
+  </div>
+</footer>
+
+</body>
+</html>
