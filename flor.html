@@ -19,7 +19,6 @@
   --white: #ffffff;
   --cream: #f5f2ed;
   --gold: #C4A265;
-  --gold-dark: #a88540;
   --text-dark: #1a1a1a;
   --text-secondary: #555;
   --text-muted: #888;
@@ -43,119 +42,85 @@ img { max-width: 100%; height: auto; display: block; }
 .container { max-width: 900px; margin: 0 auto; padding: 0 2.5rem; }
 
 /* ============ HERO ============ */
-.hero { position:relative; overflow:hidden;
+.hero {
   background: var(--black);
   padding: 0;
   position: relative;
   overflow: hidden;
-  min-height: 420px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.hero__bg-ornament {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.hero__bg-ornament svg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0.06;
-}
-
-.hero__inner {
-  position: relative;
-  z-index: 2;
+.hero__image-wrapper {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  padding: 5rem 2.5rem 4rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  position: relative;
 }
 
-.hero__rule-top {
-  width: 60px;
-  height: 1px;
-  background: var(--gold);
-  margin-bottom: 2rem;
+.hero__image-wrapper img {
+  width: 100%;
+  height: auto;
+  filter: grayscale(100%);
+}
+
+.hero__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 2.5rem 1.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 40%, transparent 100%);
 }
 
 .hero__name {
   font-family: var(--font);
-  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 800;
   color: var(--white);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  line-height: 1.05;
-  margin-bottom: 1rem;
+  line-height: 1.1;
+  margin-bottom: 0.3rem;
 }
 
 .hero__role {
   font-family: var(--font);
   font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
+  font-weight: 600;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.6rem;
+  color: var(--blue);
+  margin-bottom: 0.5rem;
 }
 
-.hero__compagnie {
+.hero__tagline {
   font-family: var(--font);
   font-size: 0.9rem;
   font-style: italic;
-  color: rgba(255,255,255,0.45);
-  letter-spacing: 0.05em;
-}
-
-.hero__rule-bottom {
-  width: 60px;
-  height: 1px;
-  background: rgba(196,162,101,0.35);
-  margin-top: 2.2rem;
+  color: rgba(255,255,255,0.6);
 }
 
 /* ============ BLUE ACCENT BAR ============ */
 .blue-bar {
   background: var(--blue);
-  padding: 2rem 2.5rem;
+  padding: 1.8rem 2.5rem;
   text-align: center;
 }
 
 .blue-bar p {
   font-family: var(--font);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-style: italic;
   color: var(--white);
-  line-height: 1.75;
+  line-height: 1.7;
   max-width: 750px;
   margin: 0 auto;
 }
 
-.blue-bar p cite {
-  display: block;
-  margin-top: 0.5rem;
-  font-style: normal;
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gold);
-  font-weight: 600;
-}
-
 /* ============ SECTIONS ============ */
 .section { padding: 4.5rem 0; }
-.section--white { background: var(--white); }
-.section--cream { background: var(--cream); }
+.section--alt { background: var(--white); }
 .section--blue { background: var(--blue); }
+.section--cream { background: var(--cream); }
 
 .section__title {
   font-family: var(--font);
@@ -167,7 +132,7 @@ img { max-width: 100%; height: auto; display: block; }
   margin-bottom: 0.8rem;
 }
 
-.section--blue .section__title {
+.section__title--white {
   color: var(--white);
 }
 
@@ -178,260 +143,232 @@ img { max-width: 100%; height: auto; display: block; }
   margin-bottom: 2.5rem;
 }
 
-.section--blue .section__line {
+.section__line--white {
+  background: var(--white);
+}
+
+.section__line--gold {
   background: var(--gold);
 }
 
-/* ============ THEATRE — year groups ============ */
-.theatre__group {
-  margin-bottom: 2.2rem;
+/* ============ PARCOURS ============ */
+.parcours__period {
+  margin-bottom: 2.5rem;
 }
 
-.theatre__year-label {
-  font-size: 0.82rem;
+.parcours__year {
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--blue);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 0.8rem;
-  padding-bottom: 0.3rem;
-  border-bottom: 2px solid var(--blue);
-  display: inline-block;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
 }
 
-.theatre__item {
-  padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(0,47,108,0.1);
+.parcours__item {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #eee;
 }
 
-.theatre__item-title {
+.parcours__item-title {
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-dark);
-  letter-spacing: 0.02em;
 }
 
-.theatre__item-detail {
+.parcours__item-detail {
   font-size: 0.9rem;
   color: var(--text-secondary);
   line-height: 1.6;
 }
 
-.theatre__item-venue {
+.parcours__item-role {
   font-size: 0.85rem;
   font-style: italic;
   color: var(--text-muted);
-}
-
-/* ============ FILM / TV / SHORTS ============ */
-.film-list {
-  list-style: none;
-  padding: 0;
-}
-
-.film-list__item {
-  padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.film-list__year {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--blue);
-  letter-spacing: 0.08em;
-  min-width: 3.5rem;
-  flex-shrink: 0;
-}
-
-.film-list__content {}
-
-.film-list__title {
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--text-dark);
-}
-
-.film-list__detail {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
 }
 
 /* ============ RADIO ============ */
-.radio-list {
+.radio__list {
   list-style: none;
   padding: 0;
 }
 
-.radio-list__item {
-  padding: 0.9rem 0;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-}
-
-.radio-list__title {
-  font-weight: 700;
-  font-size: 1.02rem;
+.radio__list li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1rem;
   color: var(--text-dark);
 }
 
-.radio-list__detail {
+.radio__list li span {
+  color: var(--text-muted);
   font-size: 0.9rem;
-  color: var(--text-secondary);
-}
-
-.radio-list__award {
-  font-size: 0.85rem;
-  font-style: italic;
-  color: var(--gold-dark);
-  font-weight: 600;
 }
 
 /* ============ PUBLICATIONS ============ */
-.publications-grid {
+.publications__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.6rem;
+  gap: 1.5rem;
 }
 
-.pub-card {
+.publication__card {
   background: var(--white);
   border-left: 3px solid var(--gold);
-  padding: 1.4rem 1.6rem;
-  border-radius: 0 2px 2px 0;
+  padding: 1.2rem 1.5rem;
 }
 
-.pub-card__title {
+.publication__title {
   font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--text-dark);
-  letter-spacing: 0.03em;
-  margin-bottom: 0.2rem;
-}
-
-.pub-card__publisher {
-  font-size: 0.88rem;
-  color: var(--blue);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  margin-bottom: 0.8rem;
-}
-
-.pub-card__quotes {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 0.9rem;
-}
-
-.pub-card__quotes li {
-  font-size: 0.92rem;
-  font-style: italic;
-  color: var(--text-secondary);
-  padding: 0.3rem 0;
-  line-height: 1.55;
-}
-
-.pub-card__quotes li cite {
-  font-style: normal;
-  font-weight: 600;
-  color: var(--text-muted);
-  font-size: 0.82rem;
-}
-
-.pub-card__link {
-  display: block;
-  margin-top: 0.7rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--gold-dark);
-  text-decoration: none;
-  letter-spacing: 0.03em;
-  word-break: break-all;
-  border-bottom: 1px solid rgba(168,133,64,0.3);
-  padding-bottom: 0.15rem;
-  transition: color 0.2s, border-color 0.2s;
-}
-
-.pub-card__link:hover {
-  color: var(--blue);
-  border-color: var(--blue);
-}
-
-.pub-card__link-label {
-  display: block;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  font-style: italic;
-  margin-top: 0.25rem;
-  word-break: break-all;
-}
-
-/* ============ FORMATION ============ */
-.formation__block {
-  margin-bottom: 1.5rem;
-}
-
-.formation__label {
-  font-size: 0.82rem;
   font-weight: 700;
-  color: var(--blue);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  color: var(--text-dark);
+  margin-bottom: 0.3rem;
+}
+
+.publication__year {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+}
+
+.publication__publisher {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
   margin-bottom: 0.5rem;
 }
 
-.formation__text {
-  font-size: 1rem;
-  color: var(--text-dark);
-  line-height: 1.75;
+.publication__quotes {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
 }
 
-.formation__stages {
-  font-size: 0.92rem;
-  color: var(--text-secondary);
-  line-height: 1.8;
+.publication__link {
+  font-size: 0.85rem;
+  color: var(--blue);
+  text-decoration: none;
+  border-bottom: 1px solid var(--blue-light);
+  transition: color 0.2s;
+  word-break: break-all;
+}
+
+.publication__link:hover {
+  color: var(--blue-light);
+}
+
+/* ============ COURTS METRAGES ============ */
+.courts__list {
+  list-style: none;
+  padding: 0;
+}
+
+.courts__list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+}
+
+.courts__list li .cm-year {
+  font-weight: 700;
+  color: var(--blue);
+  font-size: 0.85rem;
+  margin-right: 0.5rem;
+}
+
+.courts__list li span {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+/* ============ FORMATION ============ */
+.formation__item {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  color: var(--text-dark);
+}
+
+.formation__item span {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ============ PORTRAITS GALLERY ============ */
+.portraits__grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.portraits__row {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.portraits__row--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.portraits__row--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.portraits__grid img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  filter: grayscale(20%);
+  transition: filter 0.3s;
+}
+
+.portraits__grid img:hover {
+  filter: grayscale(0%);
 }
 
 /* ============ RADIO FRANCE SECTION ============ */
-.radiofrance-section {
-  background: var(--blue);
-  padding: 3rem 2.5rem;
+.radio-france {
   text-align: center;
+  padding: 4.5rem 2.5rem;
 }
 
-.radiofrance-section__text {
-  font-size: 1.05rem;
-  color: rgba(255,255,255,0.85);
+.radio-france .section__title--white {
+  margin-bottom: 0.8rem;
+}
+
+.radio-france .section__line--white {
+  margin: 0 auto 2rem;
+}
+
+.radio-france p {
+  color: rgba(255,255,255,0.75);
+  font-size: 1rem;
+  margin-bottom: 2rem;
   font-style: italic;
-  margin-bottom: 1.4rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.7;
 }
 
-.radiofrance-section__link {
+.btn-radio-france {
   display: inline-block;
-  background: var(--gold);
-  color: var(--black);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  background: transparent;
+  border: 2px solid var(--white);
+  color: var(--white);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 0.75rem 1.8rem;
-  border-radius: 1px;
+  padding: 0.8rem 2rem;
   transition: background 0.2s, color 0.2s;
 }
 
-.radiofrance-section__link:hover {
+.btn-radio-france:hover {
   background: var(--white);
   color: var(--blue);
 }
 
-/* ============ FOOTER / CONTACT ============ */
+/* ============ CONTACT ============ */
 .contact {
   background: var(--black);
   padding: 3.5rem 2.5rem;
@@ -447,41 +384,29 @@ img { max-width: 100%; height: auto; display: block; }
   margin-bottom: 1rem;
 }
 
-.contact__block {
-  margin-bottom: 1rem;
-}
-
-.contact__label {
-  font-size: 0.72rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
-  margin-bottom: 0.25rem;
-}
-
 .contact__info {
-  font-size: 0.88rem;
-  color: rgba(255,255,255,0.55);
-  line-height: 1.9;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 2;
 }
 
 .contact__info a {
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.5);
   text-decoration: none;
   border-bottom: 1px solid rgba(255,255,255,0.15);
-  transition: color 0.2s;
 }
 
-.contact__info a:hover {
-  color: var(--gold);
-  border-color: var(--gold);
+.contact__agent {
+  margin-top: 1.2rem;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.35);
+  line-height: 2;
 }
 
-.contact__divider {
-  width: 40px;
-  height: 1px;
-  background: rgba(255,255,255,0.12);
-  margin: 1.5rem auto;
+.contact__agent a {
+  color: rgba(255,255,255,0.35);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .contact__back {
@@ -490,18 +415,11 @@ img { max-width: 100%; height: auto; display: block; }
 
 .contact__back a {
   font-size: 0.8rem;
-  color: var(--gold);
+  color: var(--blue-light);
   text-decoration: none;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 600;
-  border-bottom: 1px solid rgba(196,162,101,0.3);
-  padding-bottom: 0.1rem;
-  transition: color 0.2s;
-}
-
-.contact__back a:hover {
-  color: var(--white);
 }
 
 /* ============ RESPONSIVE ============ */
@@ -509,597 +427,471 @@ img { max-width: 100%; height: auto; display: block; }
   html { font-size: 16px; }
   .container { padding: 0 1.5rem; }
   .section { padding: 3rem 0; }
-  .hero__inner { padding: 3.5rem 1.5rem 3rem; }
-  .film-list__item { flex-direction: column; gap: 0.2rem; }
-  .film-list__year { min-width: auto; }
-  .pub-card { padding: 1.1rem 1.2rem; }
-  .blue-bar { padding: 1.5rem 1.5rem; }
-  .radiofrance-section { padding: 2.5rem 1.5rem; }
-  .contact { padding: 2.5rem 1.5rem; }
+  .hero__overlay { padding: 2rem 1.5rem 1.5rem; }
+  .portraits__row--3 { grid-template-columns: 1fr 1fr; }
+  .portraits__row--2 { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
-<!-- ===== HERO ===== -->
-<section class="hero" aria-label="Présentation de Flor Lurienne">
-  <div class="hero__bg-ornament" aria-hidden="true">
-    <svg viewBox="0 0 900 420" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Theatrical curtain-inspired decorative arcs -->
-      <path d="M-50 0 Q200 300 450 210 Q700 120 950 400" stroke="#C4A265" stroke-width="1"/>
-      <path d="M-50 50 Q250 320 450 250 Q650 180 950 450" stroke="#C4A265" stroke-width="0.5"/>
-      <path d="M0 420 Q200 100 450 200 Q700 300 900 0" stroke="#002F6C" stroke-width="1.5"/>
-      <!-- Corner ornament top-right -->
-      <rect x="820" y="20" width="60" height="1" fill="#C4A265" opacity="0.4"/>
-      <rect x="880" y="20" width="1" height="40" fill="#C4A265" opacity="0.4"/>
-      <!-- Corner ornament bottom-left -->
-      <rect x="20" y="380" width="60" height="1" fill="#C4A265" opacity="0.4"/>
-      <rect x="20" y="340" width="1" height="40" fill="#C4A265" opacity="0.4"/>
-      <!-- Dotted grid texture -->
-      <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-        <circle cx="15" cy="15" r="0.8" fill="#C4A265"/>
-      </pattern>
-      <rect width="900" height="420" fill="url(#dots)" opacity="0.15"/>
-    </svg>
-  </div>
-
-  <div class="hero__image-wrapper"><img src="flor-portrait.jpg" alt="Flor Lurienne" style="width:100%;height:auto;max-height:80vh;object-fit:cover;object-position:center top;filter:grayscale(30%);"></div><div class="hero__inner" style="position:absolute;bottom:0;left:0;right:0;padding:2rem 2.5rem;background:linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, transparent 100%);">
-    <div class="hero__rule-top" aria-hidden="true"></div>
-    <h1 class="hero__name">Flor<br>Lurienne</h1>
-    <p class="hero__role">Comédienne · Autrice · Metteuse en scène</p>
-    <p class="hero__compagnie">Compagnie Presque Une Île</p>
-    <div class="hero__rule-bottom" aria-hidden="true"></div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__image-wrapper">
+    <img src="flor-portrait.jpg" alt="Flor Lurienne">
+    <div class="hero__overlay">
+      <h1 class="hero__name">Flor Lurienne</h1>
+      <p class="hero__role">Comédienne · Autrice · Metteuse en scène</p>
+      <p class="hero__tagline">Compagnie Presque Une Île</p>
+    </div>
   </div>
 </section>
 
-<!-- ===== BLUE ACCENT BAR ===== -->
+<!-- BLUE BAR -->
 <div class="blue-bar">
-  <p>
-    «&thinsp;Il semblerait que le réalisme magique d'un Garcia Marquez coule dans ses veines parisiennes&thinsp;»
-    <cite>— Paris Match</cite>
-  </p>
+  <p>« Il semblerait que le réalisme magique d'un Garcia Marquez coule dans ses veines parisiennes » — <em>Paris Match</em></p>
 </div>
 
-<!-- ===== THÉÂTRE ===== -->
-<section class="section section--cream" aria-labelledby="section-theatre">
+<!-- THÉÂTRE -->
+<section class="section">
   <div class="container">
-    <h2 class="section__title" id="section-theatre">Théâtre</h2>
-    <div class="section__line" aria-hidden="true"></div>
+    <h2 class="section__title">Théâtre</h2>
+    <div class="section__line"></div>
 
-    <!-- 2025-2026 -->
-    <div class="theatre__group">
-      <span class="theatre__year-label">2025 – 2026</span>
-      <div class="theatre__item">
-        <p class="theatre__item-title">LE LAVE-VAISSELLE</p>
-        <p class="theatre__item-detail">Flor Lurienne &amp; Frédéric de Goldfiem</p>
-        <p class="theatre__item-venue">Théâtre LA FLÈCHE — Paris</p>
+    <div class="parcours__period">
+      <p class="parcours__year">2025 – 2026</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Le Lave-Vaisselle</p>
+        <p class="parcours__item-detail">Flor Lurienne &amp; Frédéric de Goldfiem</p>
+        <p class="parcours__item-role">Rôle principal</p>
+        <p class="parcours__item-detail">Théâtre La Flèche, Paris</p>
       </div>
     </div>
 
-    <!-- 2023 -->
-    <div class="theatre__group">
-      <span class="theatre__year-label">2023</span>
-      <div class="theatre__item">
-        <p class="theatre__item-title">MON CUL S'EN ACCOMODE</p>
-        <p class="theatre__item-detail">Écriture collective · Frédéric de Goldfiem</p>
-        <p class="theatre__item-venue">Nice</p>
+    <div class="parcours__period">
+      <p class="parcours__year">2016 – 2017</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Ça va maman ?</p>
+        <p class="parcours__item-detail">Gloria Mina · Armand Eloi</p>
+        <p class="parcours__item-detail">Festival d'Avignon</p>
       </div>
     </div>
 
-    <!-- 2020 -->
-    <div class="theatre__group">
-      <span class="theatre__year-label">2020</span>
-      <div class="theatre__item">
-        <p class="theatre__item-title">NUIT BLANCHE</p>
-        <p class="theatre__item-detail">Dostoïevski · Joel Jouanneau</p>
-        <p class="theatre__item-venue">Port Louis</p>
+    <div class="parcours__period">
+      <p class="parcours__year">2013 – 2016</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Deshabillez Mots Opus 2</p>
+        <p class="parcours__item-detail">Flor Lurienne &amp; Léonore Chaix · Marina Tomé</p>
+        <p class="parcours__item-detail">Théâtre de l'Européen</p>
       </div>
     </div>
 
-    <!-- 2019 -->
-    <div class="theatre__group">
-      <span class="theatre__year-label">2019</span>
-      <div class="theatre__item">
-        <p class="theatre__item-title">CONVICTION INTIME</p>
-        <p class="theatre__item-detail">Rémi De Vos · Gilles Nicolas</p>
-        <p class="theatre__item-venue">Paris</p>
+    <div class="parcours__period">
+      <p class="parcours__year">2011 – 2013</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Deshabillez Mots Opus 1</p>
+        <p class="parcours__item-detail">Flor Lurienne &amp; Léonore Chaix · Marina Tomé</p>
+        <p class="parcours__item-detail">Théâtre de l'Européen / Studio des Champs-Élysées</p>
       </div>
     </div>
 
-    <!-- 2016-2017 -->
-    <div class="theatre__group">
-      <span class="theatre__year-label">2016 – 2017</span>
-      <div class="theatre__item">
-        <p class="theatre__item-title">ÇA VA MAMAN ?</p>
-        <p class="theatre__item-detail">Gloria Mina · Armand Eloi</p>
-        <p class="theatre__item-venue">Festival d'Avignon</p>
+    <div class="parcours__period">
+      <p class="parcours__year">2009 – 2011</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Déshabillez Mots <em style="font-weight:400">(Work in progress)</em></p>
+        <p class="parcours__item-detail">Flor Lurienne &amp; Léonore Chaix · Jacques Bonnaffé</p>
+        <p class="parcours__item-detail">Trois Baudets — Festival du Mot / Aide fonds SACD Humour</p>
       </div>
     </div>
 
-    <!-- 2013-2016 -->
-    <div class="theatre__group">
-      <span class="theatre__year-label">2013 – 2016</span>
-      <div class="theatre__item">
-        <p class="theatre__item-title">DESHABILLEZ MOTS <em style="font-weight:400;font-size:0.9rem">Opus 2</em></p>
-        <p class="theatre__item-detail">Flor Lurienne &amp; Léonore Chaix · Marina Tomé</p>
-        <p class="theatre__item-venue">Théâtre de l'Européen</p>
+    <div class="parcours__period">
+      <p class="parcours__year">2023</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Mon cul s'en accomode</p>
+        <p class="parcours__item-detail">Écriture collective · Frédéric de Goldfiem</p>
+        <p class="parcours__item-detail">Nice</p>
       </div>
     </div>
 
-    <!-- 2011-2013 -->
-    <div class="theatre__group">
-      <span class="theatre__year-label">2011 – 2013</span>
-      <div class="theatre__item">
-        <p class="theatre__item-title">DESHABILLEZ MOTS <em style="font-weight:400;font-size:0.9rem">Opus 1</em></p>
-        <p class="theatre__item-detail">Flor Lurienne &amp; Léonore Chaix · Marina Tomé</p>
-        <p class="theatre__item-venue">Théâtre de l'Européen / Studio des Champs-Élysées</p>
+    <div class="parcours__period">
+      <p class="parcours__year">2020</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Nuit Blanche</p>
+        <p class="parcours__item-detail">Dostoïevski · Joel Jouanneau</p>
+        <p class="parcours__item-detail">Port Louis</p>
       </div>
     </div>
 
-    <!-- 2009-2011 -->
-    <div class="theatre__group">
-      <span class="theatre__year-label">2009 – 2011</span>
-      <div class="theatre__item">
-        <p class="theatre__item-title">Work in progress DÉSHABILLEZ MOTS</p>
-        <p class="theatre__item-detail">Flor Lurienne &amp; Léonore Chaix · Jacques Bonnaffé</p>
-        <p class="theatre__item-venue">Trois Baudets — Festival du Mot / Aide fonds SACD Humour</p>
+    <div class="parcours__period">
+      <p class="parcours__year">2019</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Conviction Intime</p>
+        <p class="parcours__item-detail">Rémi De Vos · Gilles Nicolas</p>
+        <p class="parcours__item-detail">Paris</p>
       </div>
     </div>
 
-    <!-- 2008 -->
-    <div class="theatre__group">
-      <span class="theatre__year-label">2008</span>
-      <div class="theatre__item">
-        <p class="theatre__item-title">GEORGE DANDIN</p>
-        <p class="theatre__item-detail">Molière · Marcel Maréchal</p>
-        <p class="theatre__item-venue">Tréteaux de France</p>
+    <div class="parcours__period">
+      <p class="parcours__year">2008</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">George Dandin</p>
+        <p class="parcours__item-detail">Molière · Marcel Maréchal</p>
+        <p class="parcours__item-detail">Tréteaux de France</p>
       </div>
     </div>
 
-    <!-- 2006 -->
-    <div class="theatre__group">
-      <span class="theatre__year-label">2006</span>
-      <div class="theatre__item">
-        <p class="theatre__item-title">LES PARADIS AVEUGLES</p>
-        <p class="theatre__item-detail">Duong Thu Huong · Gilles Dao</p>
-        <p class="theatre__item-venue">Tarmac de la Vilette</p>
+    <div class="parcours__period">
+      <p class="parcours__year">2006</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Les Paradis Aveugles</p>
+        <p class="parcours__item-detail">Duong Thu Huong · Gilles Dao</p>
+        <p class="parcours__item-detail">Tarmac de la Vilette</p>
       </div>
     </div>
 
-    <!-- 2005 -->
-    <div class="theatre__group">
-      <span class="theatre__year-label">2005</span>
-      <div class="theatre__item">
-        <p class="theatre__item-title">L'IMPOSSIBLE RETOUR</p>
-        <p class="theatre__item-detail">Jean-Lambert Wild · Flor Lurienne</p>
-        <p class="theatre__item-venue">Atelier du Plateau</p>
+    <div class="parcours__period">
+      <p class="parcours__year">2005</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">L'Impossible Retour</p>
+        <p class="parcours__item-detail">Jean-Lambert Wild · Flor Lurienne</p>
+        <p class="parcours__item-detail">Atelier du Plateau</p>
       </div>
-      <div class="theatre__item">
-        <p class="theatre__item-title">LA SÈVE</p>
-        <p class="theatre__item-detail">Flor Lurienne</p>
-        <p class="theatre__item-venue">Atelier du Plateau</p>
-      </div>
-    </div>
-
-    <!-- 2004 -->
-    <div class="theatre__group">
-      <span class="theatre__year-label">2004</span>
-      <div class="theatre__item">
-        <p class="theatre__item-title">MUR MÛRS 2</p>
-        <p class="theatre__item-detail">Matthieu Malgrange · Gilles Zaepffel</p>
-        <p class="theatre__item-venue">Atelier du Plateau</p>
-      </div>
-      <div class="theatre__item">
-        <p class="theatre__item-title">LES SOIRÉES POLARS</p>
-        <p class="theatre__item-detail">Gilles Zaepffel</p>
-        <p class="theatre__item-venue">Atelier du Plateau</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">La Sève</p>
+        <p class="parcours__item-detail">Flor Lurienne</p>
+        <p class="parcours__item-detail">Atelier du Plateau</p>
       </div>
     </div>
 
-    <!-- 2003 -->
-    <div class="theatre__group">
-      <span class="theatre__year-label">2003</span>
-      <div class="theatre__item">
-        <p class="theatre__item-title">LES ÉPIPHANIES</p>
-        <p class="theatre__item-detail">Henri Pichette · Estelle Cukier</p>
-        <p class="theatre__item-venue">Maison de la poésie</p>
+    <div class="parcours__period">
+      <p class="parcours__year">2004</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Mur Mûrs 2</p>
+        <p class="parcours__item-detail">Matthieu Malgrange · Gilles Zaepffel</p>
+        <p class="parcours__item-detail">Atelier du Plateau</p>
+      </div>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Les Soirées Polars</p>
+        <p class="parcours__item-detail">Gilles Zaepffel</p>
+        <p class="parcours__item-detail">Atelier du Plateau</p>
       </div>
     </div>
 
-    <!-- 2000 -->
-    <div class="theatre__group">
-      <span class="theatre__year-label">2000</span>
-      <div class="theatre__item">
-        <p class="theatre__item-title">BONJOUR ET AU REVOIR MONSIEUR BRECHT</p>
-        <p class="theatre__item-detail">Kazem Sharyarhi</p>
-        <p class="theatre__item-venue">Théâtre Jean Vilar</p>
+    <div class="parcours__period">
+      <p class="parcours__year">2003</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Les Épiphanies</p>
+        <p class="parcours__item-detail">Henri Pichette · Estelle Cukier</p>
+        <p class="parcours__item-detail">Maison de la poésie</p>
       </div>
     </div>
 
-    <!-- 1999 -->
-    <div class="theatre__group">
-      <span class="theatre__year-label">1999</span>
-      <div class="theatre__item">
-        <p class="theatre__item-title">L'HOMME DE MOINS</p>
-        <p class="theatre__item-detail">Matthieu Mével</p>
-        <p class="theatre__item-venue">Théâtre des Amandiers Nanterre</p>
+    <div class="parcours__period">
+      <p class="parcours__year">2000</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Bonjour et au revoir Monsieur Brecht</p>
+        <p class="parcours__item-detail">Kazem Sharyarhi</p>
+        <p class="parcours__item-detail">Théâtre Jean Vilar</p>
       </div>
     </div>
 
-    <!-- 1998 -->
-    <div class="theatre__group">
-      <span class="theatre__year-label">1998</span>
-      <div class="theatre__item">
-        <p class="theatre__item-title">LA PARENTHÈSE DU MIMOSA</p>
-        <p class="theatre__item-detail">Grégoire Aubert · François Delaive</p>
-        <p class="theatre__item-venue">Festival Off d'Avignon</p>
+    <div class="parcours__period">
+      <p class="parcours__year">1999</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">L'Homme de moins</p>
+        <p class="parcours__item-detail">Matthieu Mével</p>
+        <p class="parcours__item-detail">Théâtre des Amandiers Nanterre</p>
       </div>
     </div>
 
-    <!-- 1997 -->
-    <div class="theatre__group">
-      <span class="theatre__year-label">1997</span>
-      <div class="theatre__item">
-        <p class="theatre__item-title">LA PORTE DE L'INITIATION</p>
-        <p class="theatre__item-detail">Rudolf Steiner · Valery Rybakov</p>
-        <p class="theatre__item-venue">Sudden Théâtre</p>
+    <div class="parcours__period">
+      <p class="parcours__year">1998</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">La Parenthèse du Mimosa</p>
+        <p class="parcours__item-detail">Grégoire Aubert · François Delaive</p>
+        <p class="parcours__item-detail">Festival Off d'Avignon</p>
       </div>
     </div>
 
-    <!-- 1996 -->
-    <div class="theatre__group">
-      <span class="theatre__year-label">1996</span>
-      <div class="theatre__item">
-        <p class="theatre__item-title">RENAUD ET ARMIDE</p>
-        <p class="theatre__item-detail">Jean Cocteau · Sébastien Azzopardi</p>
-        <p class="theatre__item-venue">Théâtre du Gymnase</p>
+    <div class="parcours__period">
+      <p class="parcours__year">1997</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">La Porte de l'Initiation</p>
+        <p class="parcours__item-detail">Rudolf Steiner · Valery Rybakov</p>
+        <p class="parcours__item-detail">Sudden Théâtre</p>
+      </div>
+    </div>
+
+    <div class="parcours__period">
+      <p class="parcours__year">1996</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Renaud et Armide</p>
+        <p class="parcours__item-detail">Jean Cocteau · Sébastien Azzopardi</p>
+        <p class="parcours__item-detail">Théâtre du Gymnase</p>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ===== CINÉMA ===== -->
-<section class="section section--white" aria-labelledby="section-cinema">
+<!-- CINÉMA -->
+<section class="section section--alt">
   <div class="container">
-    <h2 class="section__title" id="section-cinema">Cinéma</h2>
-    <div class="section__line" aria-hidden="true"></div>
-    <ul class="film-list">
-      <li class="film-list__item">
-        <span class="film-list__year">2016</span>
-        <div class="film-list__content">
-          <span class="film-list__title">CHERCHEZ LA FEMME</span>
-          <span class="film-list__detail"> — Sou Abadi</span>
-        </div>
+    <h2 class="section__title">Cinéma</h2>
+    <div class="section__line"></div>
+
+    <div class="parcours__period">
+      <p class="parcours__year">2016</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Cherchez la Femme</p>
+        <p class="parcours__item-detail">Sou Abadi</p>
+      </div>
+    </div>
+
+    <div class="parcours__period">
+      <p class="parcours__year">2014</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Hôtel du Paradis</p>
+        <p class="parcours__item-detail">Claude Berne</p>
+      </div>
+    </div>
+
+    <div class="parcours__period">
+      <p class="parcours__year">2013</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">So Long</p>
+        <p class="parcours__item-detail">Bruno Mercier</p>
+      </div>
+    </div>
+
+    <div class="parcours__period">
+      <p class="parcours__year">2012</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">L'Autre Vie de Richard Kemp</p>
+        <p class="parcours__item-detail">Germinal Alvarez</p>
+      </div>
+    </div>
+
+    <div class="parcours__period">
+      <p class="parcours__year">2004</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Gabriel</p>
+        <p class="parcours__item-detail">Patrice Chéreau</p>
+      </div>
+    </div>
+
+    <div class="parcours__period">
+      <p class="parcours__year">1999</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Vatel</p>
+        <p class="parcours__item-detail">Roland Joffé</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TÉLÉVISION -->
+<section class="section">
+  <div class="container">
+    <h2 class="section__title">Télévision</h2>
+    <div class="section__line"></div>
+
+    <div class="parcours__period">
+      <p class="parcours__year">2022</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">HPI <em style="font-weight:400">(Saison 2)</em></p>
+        <p class="parcours__item-detail">TF1</p>
+      </div>
+    </div>
+
+    <div class="parcours__period">
+      <p class="parcours__year">2016</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Léo Mattei</p>
+        <p class="parcours__item-detail">Ludovic Colbeau-Justin</p>
+      </div>
+    </div>
+
+    <div class="parcours__period">
+      <p class="parcours__year">2014</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Psy</p>
+        <p class="parcours__item-detail">Jean Achache</p>
+      </div>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Les Fines Fleurs</p>
+        <p class="parcours__item-detail">Michel Muller</p>
+      </div>
+    </div>
+
+    <div class="parcours__period">
+      <p class="parcours__year">2013</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Section de Recherches</p>
+        <p class="parcours__item-detail">Franck Buchter</p>
+      </div>
+    </div>
+
+    <div class="parcours__period">
+      <p class="parcours__year">2006</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">État de Grâce</p>
+        <p class="parcours__item-detail">Pascal Chaumeil</p>
+      </div>
+    </div>
+
+    <div class="parcours__period">
+      <p class="parcours__year">2000</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Crimes en Série</p>
+      </div>
+    </div>
+
+    <div class="parcours__period">
+      <p class="parcours__year">1996</p>
+      <div class="parcours__item">
+        <p class="parcours__item-title">Sapho</p>
+        <p class="parcours__item-detail">Serge Moati</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RADIO -->
+<section class="section section--alt">
+  <div class="container">
+    <h2 class="section__title">Radio</h2>
+    <div class="section__line"></div>
+    <ul class="radio__list">
+      <li>
+        <strong>Deshabillez-Mots</strong>
+        <span>— France Inter · Prix Scam de la meilleure œuvre radiophonique (2009)</span>
       </li>
-      <li class="film-list__item">
-        <span class="film-list__year">2014</span>
-        <div class="film-list__content">
-          <span class="film-list__title">HÔTEL DU PARADIS</span>
-          <span class="film-list__detail"> — Claude Berne</span>
-        </div>
-      </li>
-      <li class="film-list__item">
-        <span class="film-list__year">2013</span>
-        <div class="film-list__content">
-          <span class="film-list__title">SO LONG</span>
-          <span class="film-list__detail"> — Bruno Mercier</span>
-        </div>
-      </li>
-      <li class="film-list__item">
-        <span class="film-list__year">2012</span>
-        <div class="film-list__content">
-          <span class="film-list__title">L'AUTRE VIE DE RICHARD KEMP</span>
-          <span class="film-list__detail"> — Germinal Alvarez</span>
-        </div>
-      </li>
-      <li class="film-list__item">
-        <span class="film-list__year">2004</span>
-        <div class="film-list__content">
-          <span class="film-list__title">GABRIEL</span>
-          <span class="film-list__detail"> — Patrice Chéreau</span>
-        </div>
-      </li>
-      <li class="film-list__item">
-        <span class="film-list__year">1999</span>
-        <div class="film-list__content">
-          <span class="film-list__title">VATEL</span>
-          <span class="film-list__detail"> — Roland Joffé</span>
-        </div>
+      <li>
+        <strong>Y'a pas que Marie Curie dans la vie</strong>
+        <span>— France Culture</span>
       </li>
     </ul>
   </div>
 </section>
 
-<!-- ===== TÉLÉVISION ===== -->
-<section class="section section--cream" aria-labelledby="section-tv">
+<!-- PUBLICATIONS -->
+<section class="section section--cream">
   <div class="container">
-    <h2 class="section__title" id="section-tv">Télévision</h2>
-    <div class="section__line" aria-hidden="true"></div>
-    <ul class="film-list">
-      <li class="film-list__item">
-        <span class="film-list__year">2022</span>
-        <div class="film-list__content">
-          <span class="film-list__title">HPI <em style="font-weight:400">(Saison 2)</em></span>
-          <span class="film-list__detail"> — TF1</span>
-        </div>
-      </li>
-      <li class="film-list__item">
-        <span class="film-list__year">2016</span>
-        <div class="film-list__content">
-          <span class="film-list__title">LÉO MATTEI</span>
-          <span class="film-list__detail"> — Ludovic Colbeau-Justin</span>
-        </div>
-      </li>
-      <li class="film-list__item">
-        <span class="film-list__year">2014</span>
-        <div class="film-list__content">
-          <span class="film-list__title">PSY</span>
-          <span class="film-list__detail"> — Jean Achache</span>
-        </div>
-      </li>
-      <li class="film-list__item">
-        <span class="film-list__year">2014</span>
-        <div class="film-list__content">
-          <span class="film-list__title">LES FINES FLEURS</span>
-          <span class="film-list__detail"> — Michel Muller</span>
-        </div>
-      </li>
-      <li class="film-list__item">
-        <span class="film-list__year">2013</span>
-        <div class="film-list__content">
-          <span class="film-list__title">SECTION DE RECHERCHES</span>
-          <span class="film-list__detail"> — Franck Buchter</span>
-        </div>
-      </li>
-      <li class="film-list__item">
-        <span class="film-list__year">2006</span>
-        <div class="film-list__content">
-          <span class="film-list__title">ÉTAT DE GRÂCE</span>
-          <span class="film-list__detail"> — Pascal Chaumeil</span>
-        </div>
-      </li>
-      <li class="film-list__item">
-        <span class="film-list__year">2000</span>
-        <div class="film-list__content">
-          <span class="film-list__title">CRIMES EN SÉRIE</span>
-        </div>
-      </li>
-      <li class="film-list__item">
-        <span class="film-list__year">1996</span>
-        <div class="film-list__content">
-          <span class="film-list__title">SAPHO</span>
-          <span class="film-list__detail"> — Serge Moati</span>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
+    <h2 class="section__title" style="color: var(--gold);">Publications</h2>
+    <div class="section__line section__line--gold"></div>
+    <div class="publications__grid">
 
-<!-- ===== RADIO ===== -->
-<section class="section section--white" aria-labelledby="section-radio">
-  <div class="container">
-    <h2 class="section__title" id="section-radio">Radio</h2>
-    <div class="section__line" aria-hidden="true"></div>
-    <ul class="radio-list">
-      <li class="radio-list__item">
-        <p class="radio-list__title">DESHABILLEZ-MOTS</p>
-        <p class="radio-list__detail">France Inter</p>
-        <p class="radio-list__award">Prix Scam de la meilleure œuvre radiophonique (2009)</p>
-      </li>
-      <li class="radio-list__item">
-        <p class="radio-list__title">Y'A PAS QUE MARIE CURIE DANS LA VIE</p>
-        <p class="radio-list__detail">France Culture</p>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- ===== PUBLICATIONS ===== -->
-<section class="section section--cream" aria-labelledby="section-publications">
-  <div class="container">
-    <h2 class="section__title" id="section-publications">Publications</h2>
-    <div class="section__line" aria-hidden="true"></div>
-    <div class="publications-grid">
-
-      <!-- LE LAVE-VAISSELLE -->
-      <div class="pub-card">
-        <p class="pub-card__title">LE LAVE-VAISSELLE</p>
-        <p class="pub-card__publisher">Éditions de l'Avant-Scène Théâtre — 2026</p>
-        <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:0.5rem;">avec Frédéric de Goldfiem</p>
-        <a class="pub-card__link" href="https://www.avantscenetheatre.com/comedie/1019-deshabillez-mots-nouvelle-collection-9782749814087.html" target="_blank" rel="noopener">
-          → avantscenetheatre.com
-        </a>
-        <span class="pub-card__link-label">https://www.avantscenetheatre.com/comedie/1019-deshabillez-mots-nouvelle-collection-9782749814087.html</span>
+      <div class="publication__card">
+        <p class="publication__year">2026</p>
+        <p class="publication__title">Le Lave-Vaisselle</p>
+        <p class="publication__publisher">Éditions de l'Avant-Scène Théâtre, avec Frédéric de Goldfiem</p>
       </div>
 
-      <!-- RITA TRACE SA ROUTE -->
-      <div class="pub-card">
-        <p class="pub-card__title">RITA TRACE SA ROUTE</p>
-        <p class="pub-card__publisher">Éditions Velvet — 2022</p>
-        <ul class="pub-card__quotes">
-          <li>«&thinsp;Il semblerait que le réalisme magique d'un Garcia Marquez coule dans ses veines parisiennes&thinsp;» <cite>— Paris Match</cite></li>
-          <li>«&thinsp;Un roman initiatique plein de drôlerie, de poésie et de vie&thinsp;» <cite>— Livres Hebdo</cite></li>
-          <li>«&thinsp;Vif, drôle, insolite jusqu'à l'absurde (…) Une pépite poétique&thinsp;» <cite>— L'Obs</cite></li>
-          <li>«&thinsp;Un road movie burlesque&thinsp;» <cite>— Télé 7 jours</cite></li>
-        </ul>
+      <div class="publication__card">
+        <p class="publication__year">2022</p>
+        <p class="publication__title">Rita trace sa route</p>
+        <p class="publication__publisher">Éditions Velvet</p>
+        <p class="publication__quotes">Presse : Paris Match · Livres Hebdo · L'Obs · Télé 7 jours</p>
       </div>
 
-      <!-- DÉSHABILLEZ-MOTS Flammarion -->
-      <div class="pub-card">
-        <p class="pub-card__title">DÉSHABILLEZ-MOTS</p>
-        <p class="pub-card__publisher">Éditions Flammarion</p>
-        <a class="pub-card__link" href="https://editions.flammarion.com/deshabillez-mots/9782081264366" target="_blank" rel="noopener">
-          → editions.flammarion.com
-        </a>
-        <span class="pub-card__link-label">https://editions.flammarion.com/deshabillez-mots/9782081264366</span>
+      <div class="publication__card">
+        <p class="publication__title">Déshabillez-Mots</p>
+        <p class="publication__publisher">Éditions Flammarion</p>
+        <a class="publication__link" href="https://editions.flammarion.com/deshabillez-mots/9782081264366" target="_blank" rel="noopener">editions.flammarion.com/deshabillez-mots/9782081264366</a>
       </div>
 
-      <!-- DÉSHABILLEZ-MOTS Avant-Scène théâtre -->
-      <div class="pub-card">
-        <p class="pub-card__title">DÉSHABILLEZ-MOTS <em style="font-weight:400;font-size:0.95rem">(théâtre)</em></p>
-        <p class="pub-card__publisher">L'Avant-Scène Théâtre</p>
-        <a class="pub-card__link" href="https://www.avantscenetheatre.com/comedie/1019-deshabillez-mots-nouvelle-collection-9782749814087.html" target="_blank" rel="noopener">
-          → avantscenetheatre.com
-        </a>
-        <span class="pub-card__link-label">https://www.avantscenetheatre.com/comedie/1019-deshabillez-mots-nouvelle-collection-9782749814087.html</span>
+      <div class="publication__card">
+        <p class="publication__title">Déshabillez-Mots <em style="font-weight:400; font-size:0.9rem">(théâtre)</em></p>
+        <p class="publication__publisher">L'Avant-Scène Théâtre</p>
+        <a class="publication__link" href="https://www.avantscenetheatre.com/comedie/1019-deshabillez-mots-nouvelle-collection-9782749814087.html" target="_blank" rel="noopener">avantscenetheatre.com/comedie/1019-deshabillez-mots-nouvelle-collection-9782749814087.html</a>
       </div>
 
-      <!-- PISSEUSE -->
-      <div class="pub-card">
-        <p class="pub-card__title">PISSEUSE</p>
-        <p class="pub-card__publisher">La Lucarne des Écrivains</p>
-        <a class="pub-card__link" href="https://www.lalucarnedesecrivains.fr/product-page/pisseuse" target="_blank" rel="noopener">
-          → lalucarnedesecrivains.fr
-        </a>
-        <span class="pub-card__link-label">https://www.lalucarnedesecrivains.fr/product-page/pisseuse</span>
+      <div class="publication__card">
+        <p class="publication__title">Pisseuse</p>
+        <p class="publication__publisher">La Lucarne des Écrivains</p>
+        <a class="publication__link" href="https://www.lalucarnedesecrivains.fr/product-page/pisseuse" target="_blank" rel="noopener">lalucarnedesecrivains.fr/product-page/pisseuse</a>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ===== COURTS MÉTRAGES ===== -->
-<section class="section section--white" aria-labelledby="section-courts">
+<!-- COURTS MÉTRAGES -->
+<section class="section section--alt">
   <div class="container">
-    <h2 class="section__title" id="section-courts">Courts métrages</h2>
-    <div class="section__line" aria-hidden="true"></div>
-    <ul class="film-list">
-      <li class="film-list__item">
-        <span class="film-list__year">2025</span>
-        <div class="film-list__content">
-          <span class="film-list__title">CHAGRINS</span>
-          <span class="film-list__detail"> — Germinal Alvarez</span>
-        </div>
-      </li>
-      <li class="film-list__item">
-        <span class="film-list__year">2021</span>
-        <div class="film-list__content">
-          <span class="film-list__title">JE NE SUIS PAS UNE GAMINE</span>
-          <span class="film-list__detail"> — Nils Hamelin</span>
-        </div>
-      </li>
-      <li class="film-list__item">
-        <span class="film-list__year">2012</span>
-        <div class="film-list__content">
-          <span class="film-list__title">LE PAQUET</span>
-          <span class="film-list__detail"> — Éric Lathière</span>
-        </div>
-      </li>
-      <li class="film-list__item">
-        <span class="film-list__year">2011</span>
-        <div class="film-list__content">
-          <span class="film-list__title">PORTEUR D'HOMMES</span>
-          <span class="film-list__detail"> — Antares Bassis</span>
-        </div>
-      </li>
-      <li class="film-list__item">
-        <span class="film-list__year">2008</span>
-        <div class="film-list__content">
-          <span class="film-list__title">EN DOUCE</span>
-          <span class="film-list__detail"> — Vanessa Lépinard</span>
-          <br><em style="font-size:0.82rem;color:var(--gold-dark);font-weight:600;">Prix du public — Festival d'Angers</em>
-        </div>
-      </li>
-      <li class="film-list__item">
-        <span class="film-list__year">2005</span>
-        <div class="film-list__content">
-          <span class="film-list__title">BHAÏ-BHAÏ</span>
-          <span class="film-list__detail"> — Olivier Klein</span>
-        </div>
-      </li>
-      <li class="film-list__item">
-        <span class="film-list__year">2000</span>
-        <div class="film-list__content">
-          <span class="film-list__title">TROIS FOIS RIEN ENTRE NOUS</span>
-          <span class="film-list__detail"> — Alexis Charrier</span>
-        </div>
-      </li>
-      <li class="film-list__item">
-        <span class="film-list__year">1999</span>
-        <div class="film-list__content">
-          <span class="film-list__title">SAUCISSONNAGE</span>
-          <span class="film-list__detail"> — Éric Lathière</span>
-        </div>
-      </li>
-      <li class="film-list__item">
-        <span class="film-list__year">1998</span>
-        <div class="film-list__content">
-          <span class="film-list__title">LES MIENS</span>
-          <span class="film-list__detail"> — Pénélope Fakiel</span>
-        </div>
-      </li>
-      <li class="film-list__item">
-        <span class="film-list__year">1994</span>
-        <div class="film-list__content">
-          <span class="film-list__title">ELVIS 14</span>
-          <span class="film-list__detail"> — Germinal Alvarez</span>
-        </div>
-      </li>
+    <h2 class="section__title">Courts métrages</h2>
+    <div class="section__line"></div>
+    <ul class="courts__list">
+      <li><span class="cm-year">2025</span><strong>Chagrins</strong> <span>— Germinal Alvarez</span></li>
+      <li><span class="cm-year">2021</span><strong>Je ne suis pas une gamine</strong> <span>— Nils Hamelin</span></li>
+      <li><span class="cm-year">2012</span><strong>Le Paquet</strong> <span>— Éric Lathière</span></li>
+      <li><span class="cm-year">2011</span><strong>Porteur d'hommes</strong> <span>— Antares Bassis</span></li>
+      <li><span class="cm-year">2008</span><strong>En douce</strong> <span>— Vanessa Lépinard · Prix du public Festival d'Angers</span></li>
+      <li><span class="cm-year">2005</span><strong>Bhaï-Bhaï</strong> <span>— Olivier Klein</span></li>
+      <li><span class="cm-year">2000</span><strong>Trois fois rien entre nous</strong> <span>— Alexis Charrier</span></li>
+      <li><span class="cm-year">1999</span><strong>Saucissonnage</strong> <span>— Éric Lathière</span></li>
+      <li><span class="cm-year">1998</span><strong>Les Miens</strong> <span>— Pénélope Fakiel</span></li>
+      <li><span class="cm-year">1994</span><strong>Elvis 14</strong> <span>— Germinal Alvarez</span></li>
     </ul>
   </div>
 </section>
 
-<!-- ===== FORMATION ===== -->
-<section class="section section--cream" aria-labelledby="section-formation">
+<!-- FORMATION -->
+<section class="section">
   <div class="container">
-    <h2 class="section__title" id="section-formation">Formation</h2>
-    <div class="section__line" aria-hidden="true"></div>
-
-    <div class="formation__block">
-      <p class="formation__label">Études</p>
-      <p class="formation__text">
-        Formation continue <strong>Louis Lumière</strong><br>
-        Cours d'Art Dramatique <strong>René Simon</strong>
-      </p>
-    </div>
-
-    <div class="formation__block">
-      <p class="formation__label">Stages</p>
-      <p class="formation__stages">
-        Anne Petit · Pierre Pradinas · Xavier Durringer · Valéry Rybakov · Nicolas Karpov (Gitis) · Muriel Mayette · Jean-Yves Ruf · Benoît Theberge · Camilla Saraceni · Gilles Nicolas · Pascal Rambert
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== SUR RADIO FRANCE ===== -->
-<div class="radiofrance-section" aria-labelledby="section-radiofrance">
-  <div class="container">
-    <h2 class="section__title" id="section-radiofrance" style="color:var(--white);margin-bottom:0.8rem;">Sur Radio France</h2>
-    <div class="section__line" aria-hidden="true" style="background:var(--gold);margin-bottom:1.8rem;"></div>
-    <p class="radiofrance-section__text">
-      Retrouvez toutes les émissions et podcasts de Flor Lurienne sur Radio France
+    <h2 class="section__title">Formation</h2>
+    <div class="section__line"></div>
+    <p class="formation__item"><strong>Formation continue Louis Lumière</strong></p>
+    <p class="formation__item"><strong>Cours d'Art Dramatique René Simon</strong></p>
+    <p class="formation__item" style="margin-top: 1.5rem;">
+      <strong>Stages</strong>
+      <span> — Anne Petit · Pierre Pradinas · Xavier Durringer · Valéry Rybakov · Nicolas Karpov (Gitis) · Muriel Mayette · Jean-Yves Ruf · Benoît Theberge · Camilla Saraceni · Gilles Nicolas · Pascal Rambert</span>
     </p>
-    <a class="radiofrance-section__link" href="https://www.radiofrance.fr/recherche?q=Flor+Lurienne&results=true" target="_blank" rel="noopener">
-      Écouter sur Radio France →
-    </a>
   </div>
-</div>
+</section>
 
-<!-- ===== FOOTER / CONTACT ===== -->
+<!-- PORTRAITS -->
+<section class="section section--cream">
+  <div class="container">
+    <h2 class="section__title">Portraits</h2>
+    <div class="section__line"></div>
+    <div class="portraits__grid">
+      <div class="portraits__row portraits__row--3">
+        <img src="flor-hr-1.jpg" alt="Portrait de Flor Lurienne">
+        <img src="flor-hr-5.jpg" alt="Portrait de Flor Lurienne">
+        <img src="flor-hr-7.jpg" alt="Portrait de Flor Lurienne">
+      </div>
+      <div class="portraits__row portraits__row--2">
+        <img src="flor-hr-2.jpg" alt="Portrait de Flor Lurienne">
+        <img src="flor-hr-9.jpg" alt="Portrait de Flor Lurienne">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUR RADIO FRANCE -->
+<section class="section--blue radio-france">
+  <h2 class="section__title section__title--white">Sur Radio France</h2>
+  <div class="section__line section__line--white"></div>
+  <p>Retrouvez les émissions et interventions de Flor Lurienne sur Radio France</p>
+  <a class="btn-radio-france" href="https://www.radiofrance.fr/recherche?q=Flor+Lurienne&results=true" target="_blank" rel="noopener">
+    Écouter sur Radio France
+  </a>
+</section>
+
+<!-- CONTACT / FOOTER -->
 <footer class="contact">
   <p class="contact__name">Flor Lurienne</p>
-
-  <div class="contact__block">
-    <p class="contact__label">Contact direct</p>
-    <p class="contact__info">
-      <a href="mailto:lurienneflor@gmail.com">lurienneflor@gmail.com</a><br>
-      06 13 62 24 41
-    </p>
-  </div>
-
-  <div class="contact__divider" aria-hidden="true"></div>
-
-  <div class="contact__block">
-    <p class="contact__label">Agent</p>
-    <p class="contact__info">
-      Marie-Claude Schwartz — AAMCS<br>
-      <a href="mailto:agencemcschwartz@gmail.com">agencemcschwartz@gmail.com</a><br>
-      06 14 77 60 69
-    </p>
-  </div>
-
+  <p class="contact__info">
+    <a href="mailto:lurienneflor@gmail.com">lurienneflor@gmail.com</a> · 06 13 62 24 41
+  </p>
+  <p class="contact__agent">
+    Agent : Marie-Claude Schwartz — AAMCS<br>
+    <a href="mailto:agencemcschwartz@gmail.com">agencemcschwartz@gmail.com</a> · 06 14 77 60 69
+  </p>
   <div class="contact__back">
     <a href="index.html">← Retour au dossier de presse</a>
   </div>
