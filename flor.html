@@ -43,7 +43,7 @@ img { max-width: 100%; height: auto; display: block; }
 .container { max-width: 900px; margin: 0 auto; padding: 0 2.5rem; }
 
 /* ============ HERO ============ */
-.hero {
+.hero { position:relative; overflow:hidden;
   background: var(--black);
   padding: 0;
   position: relative;
@@ -543,7 +543,7 @@ img { max-width: 100%; height: auto; display: block; }
     </svg>
   </div>
 
-  <div class="hero__inner">
+  <div class="hero__image-wrapper"><img src="flor-portrait.jpg" alt="Flor Lurienne" style="width:100%;height:auto;max-height:80vh;object-fit:cover;object-position:center top;filter:grayscale(30%);"></div><div class="hero__inner" style="position:absolute;bottom:0;left:0;right:0;padding:2rem 2.5rem;background:linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, transparent 100%);">
     <div class="hero__rule-top" aria-hidden="true"></div>
     <h1 class="hero__name">Flor<br>Lurienne</h1>
     <p class="hero__role">Comédienne · Autrice · Metteuse en scène</p>
