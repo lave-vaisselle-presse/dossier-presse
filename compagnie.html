@@ -13,7 +13,10 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --blue: #004459;
+  --blue: #9B2321;
+  --carmine: #9B2321;
+  --carmine-dark: #7E1B19;
+  --carmine-darker: #6A1614;
   --cream: #f5f2ed;
   --black: #0a0a0a;
   --white: #ffffff;
@@ -117,8 +120,19 @@ img { max-width: 100%; height: auto; display: block; }
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border: 1px solid transparent;
+}
+
+.link-card:focus-visible {
+  outline: 2px solid var(--carmine);
+  outline-offset: 3px;
+}
+
+.link-card:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(155, 35, 33, 0.15);
 }
 
 .link-card:hover {
@@ -234,7 +248,18 @@ img { max-width: 100%; height: auto; display: block; }
 
 .dossier-link a:hover {
   background: var(--white);
-  color: var(--black);
+  color: var(--carmine);
+  border-color: var(--white);
+}
+
+.dossier-link a:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 3px;
+}
+
+.dossier-link a:active {
+  background: rgba(255,255,255,0.85);
+  color: var(--carmine-dark);
 }
 
 .dossier-link p {
